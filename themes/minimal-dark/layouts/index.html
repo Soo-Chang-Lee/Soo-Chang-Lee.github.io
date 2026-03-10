@@ -1,0 +1,65 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-name">{{ .Site.Params.author }}</h1>
+    <p class="hero-role">Graduate Student &middot; Physics</p>
+    <p class="hero-field">High Energy Physics — Theory (HEP-th)</p>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-content">
+    {{ .Content }}
+  </div>
+
+  <div class="links-section">
+    <h2>Contact &amp; Profiles</h2>
+    <ul class="profile-links">
+      <li>
+        <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener" class="profile-link">
+          <span class="link-icon">&#9654;</span> GitHub
+        </a>
+      </li>
+      <li>
+        <a href="{{ .Site.Params.email }}" class="profile-link">
+          <span class="link-icon">&#9654;</span> Email
+        </a>
+      </li>
+      <li>
+        <a href="{{ .Site.Params.arxiv }}" target="_blank" rel="noopener" class="profile-link">
+          <span class="link-icon">&#9654;</span> arXiv
+        </a>
+      </li>
+      <li>
+        <a href="{{ .Site.Params.inspire }}" target="_blank" rel="noopener" class="profile-link">
+          <span class="link-icon">&#9654;</span> INSPIRE-HEP
+        </a>
+      </li>
+      <li>
+        <a href="{{ .Site.Params.scholar }}" target="_blank" rel="noopener" class="profile-link">
+          <span class="link-icon">&#9654;</span> Google Scholar
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="recent-posts">
+  <h2>Recent Posts</h2>
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ if $posts }}
+    <ul class="post-list">
+      {{ range first 5 $posts }}
+      <li class="post-item">
+        <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
+        <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+        {{ with .Summary }}<p class="post-summary">{{ . | plainify | truncate 150 }}</p>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+    <a href="{{ "/posts/" | relURL }}" class="view-all">View all posts &rarr;</a>
+  {{ else }}
+    <p class="no-posts">No posts yet. Check back soon!</p>
+  {{ end }}
+</section>
+{{ end }}

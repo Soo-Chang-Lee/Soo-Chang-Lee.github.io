@@ -1,0 +1,9 @@
+name = "Minimal Dark"
+license = "MIT"
+licenselink = "https://github.com/Soo-Chang-Lee/Soo-Chang-Lee.github.io/blob/main/LICENSE"
+description = "A minimal dark theme for Soochang Lee's personal site"
+homepage = "https://soo-chang-lee.github.io/"
+min_version = "0.100.0"
+
+[author]
+  name = "Soochang Lee"

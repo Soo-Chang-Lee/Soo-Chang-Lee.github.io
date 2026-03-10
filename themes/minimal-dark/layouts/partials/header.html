@@ -1,0 +1,10 @@
+<header class="site-header">
+  <nav class="nav">
+    <a href="{{ "/" | relURL }}" class="nav-logo">{{ .Site.Title }}</a>
+    <ul class="nav-links">
+      <li><a href="{{ "/" | relURL }}" {{ if .IsHome }}class="active"{{ end }}>About</a></li>
+      <li><a href="{{ "/posts/" | relURL }}" {{ if (hasPrefix .RelPermalink "/posts") }}class="active"{{ end }}>Blog</a></li>
+      <li><a href="{{ "/tags/" | relURL }}" {{ if (hasPrefix .RelPermalink "/tags") }}class="active"{{ end }}>Tags</a></li>
+    </ul>
+  </nav>
+</header>
